@@ -412,5 +412,11 @@ aside p {
     background-color: #33333360;
   }
 
-
+  .container {
+    flex-direction: column; 
+    max-width: 90vw
+  }
+  .hide-aside {
+    display: none;
+  }
 }

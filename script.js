@@ -27,3 +27,11 @@ document.querySelectorAll(".close").forEach(btn => {
   });
 });
 
+const btn = document.getElementById('theme-btn');
+const link = document.getElementById('theme-link');
+
+btn.onclick = function() {
+  if (link.getAttribute('href') === 'light.css') {
+    link.setAttribute('href', 'dark.css');}
+  else {link.setAttribute('href', 'light.css');}
+};

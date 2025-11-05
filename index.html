@@ -28,6 +28,7 @@
         </div>
       </div>
       <button id="theme-btn" class="theme-btn">LightMode</button>
+      <input type="text" id="search-bar" placeholder="Search...">
     </div>
   </nav>
 </header>
@@ -53,40 +54,41 @@
       <img src="main_image.png" alt="" class="main-image">
     </div>
     
-    <div class="aside-containter" id="Aside" style="display: none;">
+    <div class="aside-containter" id="Aside">
       <aside>
         <h1>More about RAWG API</h1>
         <p>
           RAWG is the largest video game database and game discovery service. 500,000+ games, search, and machine learning recommendations with the world.
         </p>
-        <p class="close-message">Click again to close this window</p>
       </aside>
     </div>
 
-    <button class="hide-aside" id="hideAside">☆</button>
   </main>
 
   <section id="cards">
     <div class="card-blocks">
-      <div class="card-block">
+      <div class="card-block" data-tag="social">
         <img src="discrod-card.png">
         <h2>Discord</h2>
         <p>RVT datororkias disord server</p>
         <button id="btn1">Pievienojieties</button>
+        <div id="tag">tag = Social</div>
       </div>
 
-      <div class="card-block">
+      <div class="card-block" data-tag="works">
         <img src="github-card.png">
         <h2>Github</h2>
         <p>Mans github ar iepriekšējiem darbiem</p> 
         <button id="btn2">Apskatīt</button>
+        <div id="tag">tag = Works</div>
       </div>
 
-      <div class="card-block">
+      <div class="card-block" data-tag="social">
         <img src="steam-card.png">
         <h2>Steam</h2>
         <p>Mans Steam konts ir tikai izklaidei</p>
         <button id="btn3">Apskatīt</button>
+        <div id="tag">tag = Social</div>
       </div>
     </div>
   </section>

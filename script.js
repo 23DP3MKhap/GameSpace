@@ -1,17 +1,3 @@
-const hideBtn = document.getElementById("hideAside");
-const aside = document.getElementById("Aside");
-
-hideBtn.addEventListener("click", function() {
-    hideBtn.style.display = "none";
-    aside.style.display = "block";
-});
-
-aside.addEventListener("click", function() {
-    aside.style.display = "none";
-    hideBtn.style.display = "inline-block"; 
-});
-
-
 const modal1 = document.getElementById("modal1");
 const modal2 = document.getElementById("modal2");
 const modal3 = document.getElementById("modal3");
@@ -70,6 +56,30 @@ contactForm.addEventListener("submit", (submit) => {
 
   if (errors.length > 0) {
     submit.preventDefault();
-    contactFormErrors.innerHTML = errors.map(e => `<div>${e}</div>`).join("");
+    contactFormErrors.innerHTML = errors.map(e => `<div style="color:red;">${e}</div>`).join("");
+  }
+
+  else {
+    submit.preventDefault();
+    contactFormErrors.innerHTML = `<p style="color:green">Forma ir veiksmīgi iesniegta</p>`;
+    contactForm.reset();
   }
 });
+
+
+const searchBar = document.getElementById('search-bar');
+const cards = document.querySelectorAll(".card-block");
+
+searchBar.addEventListener("input", ()  => {
+  const input = searchBar.value.toLowerCase().trim();
+  
+  cards.forEach((card) => {
+    const tag = card.getAttribute("data-tag");
+    if (tag.includes(input) || input === "" ) {
+      card.style.display = "flex";
+    }
+    else {
+      card.style.display = "none";
+    }
+  });
+  });

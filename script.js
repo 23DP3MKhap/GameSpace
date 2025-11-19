@@ -73,3 +73,36 @@ contactForm.addEventListener("submit", (submit) => {
     contactFormErrors.innerHTML = errors.map(e => `<div>${e}</div>`).join("");
   }
 });
+
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const description = document.getElementById("description");
+const btncheck = document.getElementById("check");
+const searchInput = document.getElementById("searchInput");
+const newslink = document.getElementById("newslink");
+btncheck.addEventListener("click", function() {
+  const query = searchInput.value.trim();
+
+  fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&apiKey=88e2d64467614b4187c41489e6c2454e`)
+    .then(response => {
+      if (!response.ok) {
+        title.innerText = "Nav atrasts neviens raksts ar šo atslēgvārdu.";
+        author.innerText = "";
+        description.innerText = "";
+        throw "api error";
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.articles.length === 0) {
+        title.innerText = "Nav atrasts neviens raksts ar šo atslēgvārdu.";
+        author.innerText = "";
+        description.innerText = "";
+        return;
+      }
+      title.innerText = data.articles[0].title;
+      author.innerText = data.articles[0].author;
+      description.innerText = data.articles[0].description;
+      newslink.innerHTML =`link: ${data.articles[0].url}`;
+    })
+});

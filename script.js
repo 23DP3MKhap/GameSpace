@@ -1,3 +1,10 @@
+function prinHistory() {
+  const newsHistory = document.getElementById("history");
+  let newsSearchHistory = JSON.parse(localStorage.getItem("newsSearchHistory")) || [];
+  newsHistory.innerHTML = `Meklēšanas vēsture: ${newsSearchHistory.join(", ")}`;
+}
+prinHistory();
+
 const modal1 = document.getElementById("modal1");
 const modal2 = document.getElementById("modal2");
 const modal3 = document.getElementById("modal3");
@@ -95,7 +102,7 @@ let newsSearchHistory = JSON.parse(localStorage.getItem("newsSearchHistory")) ||
 btncheck.addEventListener("click", function() {
   const query = searchInput.value.trim();
 
-    if (!newsSearchHistory.includes(query)) {
+    if (!newsSearchHistory.includes(query) || query === "") {
       if (newsSearchHistory.length >= 5) {newsSearchHistory.shift()}
       newsSearchHistory.push(query);
     } 

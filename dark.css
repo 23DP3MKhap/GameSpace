@@ -707,11 +707,13 @@ aside p {
   }
 
   #news {
+    max-width: 750px;
     padding: 60px 16px;
   }
 
   .newsletter-box {
     padding: 20px 16px 22px;
+    max-width: 750px;
   }
 
   #title {

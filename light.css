@@ -670,9 +670,8 @@ aside p {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #f0f0f0b0; 
+    background-color: #33333360;
     gap: 0;
-    padding: 8px 0;
   }
 
   .burger-check:checked + .burger + .logo + .menu {
@@ -687,26 +686,26 @@ aside p {
 
   .dropdown-content {
     position: static;
-    background-color: #ffffff;
-    box-shadow: none;
-    border-left: none;
-    border-right: none;
+    background-color: #33333360;
   }
 
   .container {
-    flex-direction: column;
+    flex-direction: column; 
     max-width: 90vw
   }
+
   .aside-containter {
     display: none;
   }
 
   #news {
+    max-width: 750px;
     padding: 60px 16px;
   }
 
   .newsletter-box {
     padding: 20px 16px 22px;
+    max-width: 750px;
   }
 
   #title {

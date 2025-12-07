@@ -102,7 +102,7 @@ let newsSearchHistory = JSON.parse(localStorage.getItem("newsSearchHistory")) ||
 btncheck.addEventListener("click", function() {
   const query = searchInput.value.trim();
 
-    if (!newsSearchHistory.includes(query) || query === "") {
+    if (!newsSearchHistory.includes(query) && query) {
       if (newsSearchHistory.length >= 5) {newsSearchHistory.shift()}
       newsSearchHistory.push(query);
     } 

@@ -90,7 +90,7 @@ searchBar.addEventListener("input", ()  => {
     }
   });
   });
-
+ 
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const description = document.getElementById("description");
@@ -109,7 +109,7 @@ btncheck.addEventListener("click", function() {
 
   localStorage.setItem("newsSearchHistory", JSON.stringify(newsSearchHistory));
 
-  fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&apiKey=88e2d64467614b4187c41489e6c2454e`)
+  fetch(`https://newsdata.io/api/1/news?apikey=pub_6ea6cf23445843c289a6f1c3c068e84f&q=${encodeURIComponent(query)}&language=en`)
     .then(response => {
       if (!response.ok) {
         title.innerText = "Nav atrasts neviens raksts ar šo atslēgvārdu.";
@@ -120,16 +120,16 @@ btncheck.addEventListener("click", function() {
       return response.json();
     })
     .then(data => {
-      if (data.articles.length === 0) {
+      if (data.results.length === 0) {
         title.innerText = "Nav atrasts neviens raksts ar šo atslēgvārdu.";
         author.innerText = "";
         description.innerText = "";
         return;
       }
       newsHistory.innerHTML = `Meklēšanas vēsture: ${newsSearchHistory.join(", ")}`;
-      title.innerText = data.articles[0].title;
-      author.innerText = data.articles[0].author;
-      description.innerText = data.articles[0].description;
-      newslink.innerHTML =`link: ${data.articles[0].url}`;
+      title.innerText = data.results[0].title;
+      author.innerText = data.results[0].creator;
+      description.innerText = data.results[0].description;
+      newslink.innerHTML =`link: ${data.results[0].link}`;
     })
 });

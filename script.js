@@ -116,6 +116,7 @@ btncheck.addEventListener("click", function() {
         title.innerText = "Nav atrasts neviens raksts ar šo atslēgvārdu.";
         author.innerText = "";
         description.innerText = "";
+        newslink.innerHTML ="";
         throw "api error";
       }
       return response.json();

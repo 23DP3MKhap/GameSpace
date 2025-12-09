@@ -9,24 +9,25 @@ const modal1 = document.getElementById("modal1");
 const modal2 = document.getElementById("modal2");
 const modal3 = document.getElementById("modal3");
 
-document.getElementById("btn1").onclick = () => modal1.style.display = "flex";
-document.getElementById("btn2").onclick = () => modal2.style.display = "flex";
-document.getElementById("btn3").onclick = () => modal3.style.display = "flex";
+document.getElementById("btn1").addEventListener("click", () => {modal1.style.display = "flex";});
+document.getElementById("btn2").addEventListener("click", () => {modal2.style.display = "flex";});
+document.getElementById("btn3").addEventListener("click", () => {modal3.style.display = "flex";});
 
-
-document.querySelectorAll(".close").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.closest(".modal").style.display = "none";
-  });
-});
+document.getElementById("close1").addEventListener("click", () => {modal1.style.display = "none";});
+document.getElementById("close2").addEventListener("click", () => {modal2.style.display = "none";});
+document.getElementById("close3").addEventListener("click", () => {modal3.style.display = "none";});
 
 const btn = document.getElementById('theme-btn');
 const link = document.getElementById('theme-link');
 
 btn.onclick = function() {
-  if (link.getAttribute('href') === 'light.css') {
-    link.setAttribute('href', 'dark.css');}
-  else {link.setAttribute('href', 'light.css');}
+  if (link.getAttribute('href') === 'light.css'){
+    link.setAttribute('href', 'dark.css');
+  }
+  
+  else {
+    link.setAttribute('href', 'light.css');
+  }
 };
 
 
